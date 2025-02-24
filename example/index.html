@@ -4,31 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Highlight Words</title>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/gh/harcokuppens/highlight-words/example/highlightWords.js"
-    ></script>
   </head>
   <body>
     <h1>Highlight Words Example</h1>
-    <textarea id="wordInput" placeholder="Type words here..."></textarea>
-    <button onclick="highlightWords()">Search</button>
+    <input id="wordInput" placeholder="Type words here..."></input>
+    <button id="button" onclick="highlightWords()">Search</button>
     <p id="dummyText">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
       incididunt ut labore et dolore magna aliqua.
     </p>
 
     <script type="module">
-      import { markText, unMarkText } from "./highlightWords.js";
+      import {
+        markText,
+        unMarkText,
+      } from "https://cdn.jsdelivr.net/gh/harcokuppens/highlight-words/example/highlightWords.js";
 
-      function highlightWords() {
+      const searchbox = document.getElementById('wordInput');
+      const button = document.getElementById('button');
+      searchbox.addEventListener('keyup', function (event) {
+                    if (event.key === 'Enter') {
+                        event.preventDefault();
+                        button.click();
+                        searchbox.blur();
+                        searchbox.focus();
+                    }
+                });
+
+      window.highlightWords = function () {
         const input = document.getElementById("wordInput").value;
         const words = input.split(" ");
         unMarkText(document);
         words.forEach((word) => {
           markText(document, word);
         });
-      }
+      };
     </script>
   </body>
 </html>
