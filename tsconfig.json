@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    // browser and nodejs environments compatible configuration. 
+
+    "target": "es2022", // how modern the javascript code is which gets generated
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    //"moduleResolution": "node",
+
+    "outDir": "out",
+    "removeComments": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "isolatedModules": false,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "strictNullChecks": true
+    // "allowJs": true, // Allow importing JavaScript files (important for `antlr4` runtime).
+  },
+  "compileOnSave": true,
+  "include": ["src/**/*.ts", "test/**/*.ts", "src/highlightWords.ts "]
+  // "exclude": ["node_modules", ".vscode-test"]
+}
