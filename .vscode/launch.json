@@ -1,0 +1,22 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    // {  // does not work with ES6 or later because  Cross origin  policy of importing a module requires http server
+    //   "type": "msedge",
+    //   "request": "launch",
+    //   "name": "Launch bibber.html",
+    //   "file": "${workspaceFolder}/bibber.html"
+    // },
+    {
+      "type": "msedge",
+      "name": "Launch debug.html in webserver (requires Webserver task running)",
+      "request": "launch",
+      "url": "http://localhost:4444/debug.html",
+      "preLaunchTask": "tsc: build - tsconfig.json",
+      "outFiles": ["${workspaceFolder}/out/**/*.js"]
+    }
+  ]
+}

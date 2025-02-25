@@ -2,6 +2,8 @@
 
 # Highlight words in HTML
 
+![example of Highlight Words ](exampleHighlightWords.jpg)
+
 ### Table of Contents
 
 - [Description](##Description)
@@ -26,18 +28,23 @@ nodes of a given root node.
 
 ## Example
 
+The example shown above in the image can be viewed live
+[here](https://raw.githack.com/harcokuppens/highlight-words/7390b4d33957355752c0336c625b75c197ff3354/example/index.html).
+
 ## API
 
-### function markText(rootNode: HTMLElement, word: string)
+### function markText(rootNode: HTMLElement, word: string, caseSensitive = false)
 
 Highlight given word in child text nodes of a given root node. Highlighting is
-implemented by wrapping the word between `<mark>..</mark>` tags. The [mark][7] tag is
+implemented by wrapping the word between `<mark>..</mark>` tags. By default words
+match case insensitive, but you can enable case sensitivity. The [mark][7] tag is
 supported in HTML5.
 
 #### Parameters
 
 - `rootNode` **[HTMLElement][5]**
-- `word` **[string][6]**&#x20;
+- `word` **[string][6]**
+- `caseSensitive` **[boolean][8]**&#x20;
 
 ### function unMarkText(rootNode: HTMLElement)
 
@@ -57,3 +64,5 @@ is supported in HTML5.
 [6]:
   https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 [7]: https://developer.mozilla.org/docs/Web/HTML/Element/mark
+[8]:
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
