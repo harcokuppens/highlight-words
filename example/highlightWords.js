@@ -34,4 +34,3 @@ export function unMarkText(rootNode) {
         parent.normalize();
     });
 }
-//# sourceMappingURL=highlightWords.js.map
