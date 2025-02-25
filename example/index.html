@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Highlight Words</title>
   </head>
-  <body>
+  <body style="max-width:50em;margin:  auto;padding:50px;">
     <h1>Highlight Words Example</h1>
-    <input id="wordInput" placeholder="Type words here..."></input>
+    <input size="40"  id="wordInput" placeholder="Type words here..."></input>
     <button id="button" onclick="highlightWords()">Search</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label>
+      Case Sensitive <input type="checkbox" id="caseSensitiveCheckbox" onclick="toggleCaseSensitive()"> 
+    </label>
+  
+
     <p id="dummyText1">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
@@ -63,9 +69,16 @@
         const words = input.split(" ");
         unMarkText(document.body);
         words.forEach((word) => {
-          markText(document.body, word);
+          markText(document.body, word,window.caseSensitive);
         });
       };
+
+      window.caseSensitive = false;
+      window.toggleCaseSensitive = function() {
+            window.caseSensitive = !window.caseSensitive;
+            button.click();
+      };
+
     </script>
   </body>
 </html>

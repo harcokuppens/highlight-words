@@ -1,13 +1,17 @@
-export function markText(rootNode, word) {
+export function markText(rootNode, word, caseSensitive = false) {
     if (word == "")
         return;
+    let flags = 'gi';
+    if (caseSensitive) {
+        flags = 'g';
+    }
+    const regex = new RegExp(`(${word})`, flags);
     const walker = document.createTreeWalker(rootNode, NodeFilter.SHOW_TEXT, null);
     let node;
     node = walker.nextNode();
     while (node) {
         let nextNode = walker.nextNode();
         const parentNode = node.parentNode;
-        const regex = new RegExp(`(${word})`, 'gi');
         if (node.nodeValue && regex.test(node.nodeValue)) {
             const newHTML = node.nodeValue.replace(regex, '<mark>$1</mark>');
             const tempDiv = document.createElement('div');

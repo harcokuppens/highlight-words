@@ -5,9 +5,16 @@
  * @param rootNode the parse tree
  * @return the visitor result
  */
-export function markText(rootNode: HTMLElement, word: string) {
+export function markText(rootNode: HTMLElement, word: string, caseSensitive = false) {
     // word can also be empty string "" which we do not mark!
     if (word == "") return;
+    // create regex
+    let flags = 'gi';
+    if (caseSensitive) {
+        flags = 'g';
+    }
+    const regex = new RegExp(`(${word})`, flags);
+    // setup walker to walk over text nodes below rootNode
     const walker = document.createTreeWalker(rootNode, NodeFilter.SHOW_TEXT, null);
     let node;
     node = walker.nextNode();
@@ -21,7 +28,6 @@ export function markText(rootNode: HTMLElement, word: string) {
         // handling 'node'.
         let nextNode = walker.nextNode()
         const parentNode = node.parentNode!;
-        const regex = new RegExp(`(${word})`, 'gi');
         if (node.nodeValue && regex.test(node.nodeValue)) {
             // create new html text from text in textnode 
             const newHTML = node.nodeValue.replace(regex, '<mark>$1</mark>');
