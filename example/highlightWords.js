@@ -3,7 +3,9 @@ export function markText(rootNode, word) {
         return;
     const walker = document.createTreeWalker(rootNode, NodeFilter.SHOW_TEXT, null);
     let node;
-    while (node = walker.nextNode()) {
+    node = walker.nextNode();
+    while (node) {
+        let nextNode = walker.nextNode();
         const parentNode = node.parentNode;
         const regex = new RegExp(`(${word})`, 'gi');
         if (node.nodeValue && regex.test(node.nodeValue)) {
@@ -15,6 +17,7 @@ export function markText(rootNode, word) {
             }
             parentNode.removeChild(node);
         }
+        node = nextNode;
     }
 }
 export function unMarkText(rootNode) {
