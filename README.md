@@ -29,7 +29,7 @@ nodes of a given root node.
 ## Example
 
 The example shown above in the image can be viewed live
-[here](https://raw.githack.com/harcokuppens/highlight-words/7390b4d33957355752c0336c625b75c197ff3354/example/index.html).
+[here](https://raw.githack.com/harcokuppens/highlight-words/226f6be667c0332bbb266f172416cd904da17528/example/index.html).
 
 The code of the example can be viewed
 [here](https://github.com/harcokuppens/highlight-words/tree/main/example).
