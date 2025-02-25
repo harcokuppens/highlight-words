@@ -10,7 +10,16 @@ export function markText(rootNode: HTMLElement, word: string) {
     if (word == "") return;
     const walker = document.createTreeWalker(rootNode, NodeFilter.SHOW_TEXT, null);
     let node;
-    while (node = walker.nextNode()) {
+    node = walker.nextNode();
+    while (node) {
+        // we much fetch nextNode already, because
+        // if we have a match we create a newNode based on 'node'
+        // place newNode before 'node' and remove 'node'.
+        // If walker's current node is 'node', and we remove it,
+        // then the walker state is affected such that if stops.
+        // We prevent this by already taking a nextNode before
+        // handling 'node'.
+        let nextNode = walker.nextNode()
         const parentNode = node.parentNode!;
         const regex = new RegExp(`(${word})`, 'gi');
         if (node.nodeValue && regex.test(node.nodeValue)) {
@@ -26,6 +35,7 @@ export function markText(rootNode: HTMLElement, word: string) {
             }
             parentNode.removeChild(node);
         }
+        node = nextNode;
     }
 }
 
