@@ -34,6 +34,18 @@ The example shown above in the image can be viewed live
 The code of the example can be viewed
 [here](https://github.com/harcokuppens/highlight-words/tree/main/example).
 
+In this code we fetch the text in the input box, split it into words, undo previous
+highlighting with `unMarkText` and highlight each word with `markText`:
+
+```javascript
+const input = document.getElementById("wordInput").value;
+const words = input.split(" ");
+unMarkText(document.body);
+words.forEach((word) => {
+  markText(document.body, word, window.caseSensitive);
+});
+```
+
 ## API
 
 ### function markText(rootNode: HTMLElement, word: string, caseSensitive = false)
@@ -69,3 +81,7 @@ is supported in HTML5.
 [7]: https://developer.mozilla.org/docs/Web/HTML/Element/mark
 [8]:
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+```
+
+```
