@@ -9,7 +9,8 @@
     "target": "es2022", // how modern the javascript code is which gets generated
     "module": "esnext",
     //"moduleResolution": "bundler",
-    "moduleResolution": "node", // bundler seems not to work when publishing to npmjs.com
+    "moduleResolution": "node", // bundler seems to give build problems with tsc version 5, so switch to node
+    // https://stackoverflow.com/questions/75870063/vscode-and-typescript-5-moduleresolution-bundler?utm_source=chatgpt.com
 
     "outDir": "dist",
     "removeComments": true,
