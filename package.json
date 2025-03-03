@@ -1,3 +1,38 @@
 {
-    "type": "module"
+    "name": "@harcokuppens/highlight-words",
+    "version": "1.0.1",
+    "description": "Highlight words in HTML using typescript using mark elements",
+    "main": "dist/highlightWords.js",
+    "types": "types/highlightWords.d.ts",
+    "scripts": {
+        "start": "node out/main.js",
+        "dev": "vite",
+        "oldbuild": "tsc && vite build",
+        "build": "tsc",
+        "prepublishOnly": "npm run build",
+        "clean": "rm -r dist/ types/"
+    },
+    "keywords": [
+        "highlight",
+        "mark",
+        "words"
+    ],
+    "files": [
+        "dist",
+        "src",
+        "types"
+    ],
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/harcokuppens/highlight-words"
+    },
+    "author": "Harco Kuppens",
+    "license": "MIT",
+    "devDependencies": {
+        "typescript": "^4.0.0",
+        "undici-types": "^7.3.0",
+        "@types/node": "^22.13.4",
+        "vite": "^6.1.1"
+    }
 }

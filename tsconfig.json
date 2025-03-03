@@ -1,14 +1,17 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    // browser and nodejs environments compatible configuration. 
+    "declarationDir": "./types/", // vscode cannot find it there! => must be in dist
+    "declaration": true, // create .d.ts file for each .ts source file
+    "declarationMap": true, // create .d.ts.map file for each .ts source file which maps declaration in .d.ts to .ts file
+    // "emitDeclarationOnly": true, // for vite projects where tsc is only used to create .d.ts and .d.ts.map files
 
+    // browser and nodejs environments compatible configuration.
     "target": "es2022", // how modern the javascript code is which gets generated
     "module": "esnext",
-    "moduleResolution": "bundler",
-    //"moduleResolution": "node",
+    //"moduleResolution": "bundler",
+    "moduleResolution": "node", // bundler seems not to work when publishing to npmjs.com
 
-    "outDir": "out",
+    "outDir": "dist",
     "removeComments": true,
     "noImplicitAny": true,
     "sourceMap": true,
@@ -17,9 +20,9 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "strictNullChecks": true
-    // "allowJs": true, // Allow importing JavaScript files (important for `antlr4` runtime).
+    // "allowJs": true, // Allow importing JavaScript files (important for only javascript modules).
   },
   "compileOnSave": true,
-  "include": ["src/**/*.ts", "test/**/*.ts", "src/highlightWords.ts "]
+  "include": ["src/"]
   // "exclude": ["node_modules", ".vscode-test"]
 }
