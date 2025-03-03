@@ -5,9 +5,6 @@
     "main": "dist/highlightWords.js",
     "types": "types/highlightWords.d.ts",
     "scripts": {
-        "start": "node out/main.js",
-        "dev": "vite",
-        "oldbuild": "tsc && vite build",
         "build": "tsc",
         "prepublishOnly": "npm run build",
         "clean": "rm -r dist/ types/"
