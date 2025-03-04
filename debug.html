@@ -47,11 +47,23 @@
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
         mollit anim id est laborum.
     </p>
+    <script async src="node_modules/es-module-shims/dist/es-module-shims.js"></script>
+
+    <!-- add importmap such that we can use named import instead of a path import-->
+    <script type="importmap">
+      {
+        "imports": {
+          "@harcokuppens/highlight-words": "./dist/highlightWords.js"
+        }
+      }
+    </script>
     <script type="module">
       import {
         markText,
-        unMarkText,
-      } from "./dist/highlightWords.js";
+        unMarkText,    
+      } from '@harcokuppens/highlight-words'; // package name on https://www.npmjs.com
+      // note: without importmap above we should use path  "./dist/highlightWords.js" instead of name  '@harcokuppens/highlight-words'
+      //       see example/index.html which has no importmap
 
       const searchbox = document.getElementById('wordInput');
       const button = document.getElementById('button');
