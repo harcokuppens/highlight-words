@@ -7,10 +7,8 @@
 
     // browser and nodejs environments compatible configuration.
     "target": "es2022", // how modern the javascript code is which gets generated
-    "module": "esnext",
-    //"moduleResolution": "bundler",
-    "moduleResolution": "node", // bundler seems to give build problems with tsc version 5, so switch to node
-    // https://stackoverflow.com/questions/75870063/vscode-and-typescript-5-moduleresolution-bundler?utm_source=chatgpt.com
+    "module": "es2022",
+    "moduleResolution": "classic", // we do not need to import node.js modules
 
     "outDir": "dist",
     "removeComments": true,
@@ -25,5 +23,4 @@
   },
   "compileOnSave": true,
   "include": ["src/"]
-  // "exclude": ["node_modules", ".vscode-test"]
 }

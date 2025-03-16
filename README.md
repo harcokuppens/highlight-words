@@ -5,15 +5,16 @@
 ![example of Highlight Words ](exampleHighlightWords.jpg)
 
 <!--ts-->
-* [Highlight words in HTML](#highlight-words-in-html)
-   * [Description](#description)
-   * [Example](#example)
-   * [API](#api)
-      * [function markText(rootNode: HTMLElement, word: string, caseSensitive = false)](#function-marktextrootnode-htmlelement-word-string-casesensitive--false)
-         * [Parameters](#parameters)
-      * [function unMarkText(rootNode: HTMLElement)](#function-unmarktextrootnode-htmlelement)
-         * [Parameters](#parameters-1)
-<!--te-->
+
+- [Highlight words in HTML](#highlight-words-in-html)
+  - [Description](#description)
+  - [Example](#example)
+  - [API](#api) _
+  [function markText(rootNode: HTMLElement, word: string, caseSensitive = false)](#function-marktextrootnode-htmlelement-word-string-casesensitive--false)
+  _ [Parameters](#parameters) _
+  [function unMarkText(rootNode: HTMLElement)](#function-unmarktextrootnode-htmlelement)
+  _ [Parameters](#parameters-1)
+  <!--te-->
 
 ## Description
 
@@ -41,6 +42,8 @@ In this code we fetch the text in the input box, split it into words, undo previ
 highlighting with `unMarkText` and highlight each word with `markText`:
 
 ```javascript
+import { markText, unMarkText } from "./highlightWords.js";
+
 const input = document.getElementById("wordInput").value;
 const words = input.split(" ");
 unMarkText(document.body);

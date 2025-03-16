@@ -7,7 +7,8 @@
     "scripts": {
         "build": "tsc",
         "prepublishOnly": "npm run build",
-        "clean": "rm -r dist/ types/"
+        "clean": "rm -r dist/ types/",
+        "cleanall": "npm run clean ; rm -r node_modules/"
     },
     "keywords": [
         "highlight",
