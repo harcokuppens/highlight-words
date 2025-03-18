@@ -5,6 +5,7 @@
     "main": "dist/highlightWords.js",
     "types": "types/highlightWords.d.ts",
     "scripts": {
+        "prebuild": "npm install",
         "build": "tsc",
         "prepublishOnly": "npm run build",
         "clean": "rm -r dist/ types/",

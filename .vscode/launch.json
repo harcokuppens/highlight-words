@@ -5,30 +5,26 @@
   "version": "0.2.0",
   "configurations": [
     {
-      // launch without webserver
+      // launch without webserver (does automatic build first)
       // disable 'Cross origin  policy' in browser to still allow file debugging without webserver
       // otherwise it will not work with ES6 or later because  Cross origin  policy of importing a module requires http server
       "type": "msedge",
       "request": "launch",
       "name": "Launch debug.html without webserver (with Same-Origin Policy disabled)",
       "file": "${workspaceFolder}/debug.html",
+      "preLaunchTask": "build", // build first
       "runtimeArgs": [
         "--disable-web-security",
         "--user-data-dir=${workspaceFolder}/.vscode/edge-dev"
       ]
     },
     {
-      // launch with webserver; you manually have to start webserver task first
+      // launch with webserver (does automatic build first)
       "type": "msedge",
       "name": "Launch debug.html in webserver (requires Webserver task running)",
       "request": "launch",
       "url": "http://localhost:4444/debug.html",
-      "preLaunchTask": "tsc: build - tsconfig.json",
-      //"preLaunchTask": "npx serve",
-      // NOTE: can do not both above, so just start "npx server task" manually,
-      //      and run the tsc task every time because I want to be sure everything
-      //      is recompiled. And if the webserver is not running we will see it, and
-      //      can then easily launch this task!
+      "preLaunchTask": "build & Start Webserver", // build first and then start webserver
       "outFiles": ["${workspaceFolder}/out/**/*.js"]
     }
   ]

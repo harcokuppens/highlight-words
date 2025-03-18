@@ -2,11 +2,36 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "build",
+      "type": "shell",
+      "command": "npm run build"
+    },
+    {
       "label": "Start Webserver",
       "type": "shell",
       "command": "lsof -i :4444 || npx serve -l 4444 . ",
+
       "isBackground": true,
-      "problemMatcher": []
+      "problemMatcher": {
+        "pattern": {
+          "regexp": ".",
+          "file": 1,
+          "location": 2,
+          "message": 3
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Executing task: ",
+          "endsPattern": "[Ss][Ee][Rr][Vv][Ii][Nn][Gg]"
+        }
+      },
+      "presentation": {
+        "reveal": "silent"
+      }
+    },
+    {
+      "label": "build & Start Webserver",
+      "dependsOn": ["build", "Start Webserver"]
     }
   ]
 }
