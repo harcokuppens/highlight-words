@@ -5,16 +5,15 @@
 ![example of Highlight Words ](exampleHighlightWords.jpg)
 
 <!--ts-->
-
-- [Highlight words in HTML](#highlight-words-in-html)
-  - [Description](#description)
-  - [Example](#example)
-  - [API](#api) _
-  [function markText(rootNode: HTMLElement, word: string, caseSensitive = false)](#function-marktextrootnode-htmlelement-word-string-casesensitive--false)
-  _ [Parameters](#parameters) _
-  [function unMarkText(rootNode: HTMLElement)](#function-unmarktextrootnode-htmlelement)
-  _ [Parameters](#parameters-1)
-  <!--te-->
+<!-- prettier-ignore -->
+   * [Description](#description)
+   * [Example](#example)
+   * [API](#api)
+      * [function markText(rootNode: HTMLElement, word: string, caseSensitive = false)](#function-marktextrootnode-htmlelement-word-string-casesensitive--false)
+         * [Parameters](#parameters)
+      * [function unMarkText(rootNode: HTMLElement)](#function-unmarktextrootnode-htmlelement)
+         * [Parameters](#parameters-1)
+<!--te-->
 
 ## Description
 
